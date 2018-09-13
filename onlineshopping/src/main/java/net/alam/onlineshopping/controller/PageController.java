@@ -1,35 +1,39 @@
 package net.alam.onlineshopping.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import nt.alam.shoppingbackend.dao.CategoryDAO;
 
 @Controller
 public class PageController {
+	@Autowired
+	private CategoryDAO categoryDAO;
 	@RequestMapping(value= {"/","/home","/index"},method=RequestMethod.GET)
 	public ModelAndView index() {
 		System.out.println("ModelAndView");
 		ModelAndView mav=new ModelAndView("page");
-		mav.addObject("greeting","Welcome to spring mvc");
+		mav.addObject("title","Home");
+		mav.addObject("categories", categoryDAO.list());
+		//System.out.println(categoryDAO.list());
+		mav.addObject("userClickedHome", true);
 		return mav;
 	}
-	@RequestMapping(value="/test")
-	public ModelAndView test(@RequestParam(value="greeting",required=false) String greeting) {
-		System.out.println("ModelAndView");
-		if(greeting==null)
-			greeting="Md Rashid";
-		ModelAndView mav=new ModelAndView("page");
-		mav.addObject("greeting",greeting);
-		return mav;
+	@RequestMapping(value="/about")
+	public String about(Model m) {
+		m.addAttribute("title", "About Us");
+		m.addAttribute("userClickedAbout", true);
+		return "page";
 	}
-	@RequestMapping(value="/test1/{greeting}")
-	public ModelAndView test1(@PathVariable("greeting") String greeting) {
-		System.out.println("ModelAndView");
-		ModelAndView mav=new ModelAndView("page");
-		mav.addObject("greeting",greeting);
-		return mav;
+	@RequestMapping(value="/contact")
+	public String contact(Model m) {
+		m.addAttribute("title", "Contact Us");
+		m.addAttribute("userClickedContact", true);
+		return "page";
 	}
+
 }
