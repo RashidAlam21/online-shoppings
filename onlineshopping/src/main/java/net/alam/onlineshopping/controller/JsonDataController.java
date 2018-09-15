@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import nt.alam.shoppingbackend.bo.ProductBO;
@@ -16,12 +17,12 @@ import nt.alam.shoppingbackend.dao.ProductDAO;
 public class JsonDataController {
 	@Autowired
 	private ProductDAO productDAO;
-	@RequestMapping("/all/product")
+	@RequestMapping(value="/all/products",method=RequestMethod.GET)
 	@ResponseBody
 	public List<ProductBO> getAllProducts(){
 		return productDAO.listActiveProducts();
 	}
-	@RequestMapping( "/category/{id}/product")
+	@RequestMapping(value="/category/{id}/products",method=RequestMethod.GET)
 	@ResponseBody
 	public List<ProductBO> getPropductsByCategory(@PathVariable int id){
 		return productDAO.listActiveProductsByCategory(id);

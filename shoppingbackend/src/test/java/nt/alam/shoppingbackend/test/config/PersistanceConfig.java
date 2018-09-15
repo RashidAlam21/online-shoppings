@@ -1,4 +1,4 @@
-package nt.alam.shoppingbackend.cofig;
+package nt.alam.shoppingbackend.test.config;
 
 import java.util.Properties;
 
@@ -14,9 +14,9 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages= {"nt.alam.shoppingbackend.bo"})
+@ComponentScan(basePackages= {"nt.alam.shoppingbackend.dao"})
 @EnableTransactionManagement
-public class HibernateConfig {
+public class PersistanceConfig {
 	/*
 	 * Changing the below based on the DBMS you choose.
 	 */

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false" errorPage="throwExceptionIfNoHandlerFound" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url var="css" value="/resources/css" />
-<spring:url var="js" value="/resources/js" />
-<spring:url var="images" value="/resources/images" />
+<%-- <spring:url var="js" value="/resources/js" /> --%>
+<%-- <spring:url var="images" value="/resources/images" /> --%>
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
@@ -36,64 +36,57 @@
 	rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
-<script type="text/javascript">
-	window.menu = '${title}';
+<!-- <script type="text/javascript"> -->
+<%-- 	window.menu = '${title}'; --%>
 
-	window.contextRoot = '${contextRoot}'
-	//window.alert(menu);
-</script>
+<%--  	window.contextRoot = '${contextRoot}' --%>
+<!--  	window.alert(menu); -->
+<!-- </script> -->
 
 </head>
 
 <body>
 	<div class="wrapper">
-		<%--     ${contextRoot} Says ${greeting} --%>
-		<!-- Navigation -->
-		<%@include file="./shared/navbar.jsp"%>
-		<div class="pcontent">
-			<!-- Page Content -->
-			<!-- loading the home content  -->
-			<c:if test="${userClickedHome==true }">
-				<%@include file="home.jsp"%>
-			</c:if>
-
-			<!-- loading only when user clicks About  -->
-			<c:if test="${userClickedAbout==true }">
-				<%@include file="about.jsp"%>
-			</c:if>
-
-			<!-- loading only when user clicks Contact  -->
-			<c:if test="${userClickedContact==true }">
-				<%@include file="contact.jsp"%>
-			</c:if>
-			<!-- loading only when user clicks AllProducts  -->
-			<c:if
-				test="${userClickedAllProducts==true or userClickedCategoryProducts==true}">
-				<%@include file="listproduct.jsp"%>
-			</c:if>
-			<!-- loading only when user clicks singleProduct  -->
-			<c:if test="${userClickedShowProduct==true }">
-				<%@include file="singleProduct.jsp"%>
-			</c:if>
-		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		  <div class="container">
+		   <div class="nav-header">
+		     <a class="navbar-brand" class="home1" href="${contextRoot}/home">Online Shopping</a>
+		   </div>
+		  </div>
+		 </nav>
+		 <div class="content">
+		  <div class="container">
+		   <div class="row">
+		    <div class="col-sm-12">
+		     <div class="jumbotron">
+		      <h1>${errorTitle}</h1>
+		      <hr/>
+		      <blockquote style="word-wrap:break-word;">
+		       ${errorDescription}
+		      </blockquote>
+		     </div>
+		    </div>
+		   </div>
+		  </div>
+		 </div>
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
 
 		<!-- Bootstrap core JavaScript -->
 		<!-- 	<script src="vendor/jquery/jquery.min.js"></script> -->
-		<script src="${js}/jquery.js"></script>
+<%-- 		<script src="${js}/jquery.js"></script> --%>
 		<!-- 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 		<!-- Bootstrap core javascript -->
-		<script src="${js}/bootstrap.bundle.min.js"></script>
-		<script src="${js}/bootstrap.min.js"></script>
+<%-- 		<script src="${js}/bootstrap.bundle.min.js"></script> --%>
+<%-- 		<script src="${js}/bootstrap.min.js"></script> --%>
 		<!-- Data table pluggins -->
-		<script src="${js}/jquery.dataTables.js"></script>
+<%-- 		<script src="${js}/jquery.dataTables.js"></script> --%>
 
 		<!-- Data table BootStrap script -->
 		<%-- 	    <script src="${js}/dataTables.bootstrap.js"></script> --%>
 
 		<!-- Self coded javascript -->
-		<script src="${js}/myapp.js"></script>
+<%-- 		<script src="${js}/myapp.js"></script> --%>
 
 	</div>
 </body>

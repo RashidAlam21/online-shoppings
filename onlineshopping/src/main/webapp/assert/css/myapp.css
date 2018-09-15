@@ -29,9 +29,12 @@
 	position: relative;
 }
 .pcontent{
-	padding-bottom: 70px;
+	padding-bottom: 100px;
 }
-
+.dataTableImg{
+	width: 90px;
+	height: 100px;
+}
 }
 /*!
  * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)

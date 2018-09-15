@@ -65,7 +65,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<ProductBO> listActiveProducts() {
-		String selectActiveProducts="FROM ProductBO WHERE active=:active";
+		String selectActiveProducts="FROM ProductBO WHERE active=:active order by id";
 		return sessionFactory
 				.getCurrentSession()
 				   .createQuery(selectActiveProducts, ProductBO.class)
