@@ -8,6 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="product")
@@ -16,12 +21,19 @@ public class ProductBO {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String code;
+	@NotBlank(message="Please enter the product name!")
 	private String name;
+	@NotBlank(message="please enter the Brand name!")
 	private String brand;
+	@NotBlank(message="please add some description about product and give soome review.")
 	private String description;
+	
 	@Column(name="unit_price")
+	@Min(value=1,message="The Price cannot be less than 1!")
 	private double unitPrice;
+	@Min(value=0,message="The Quantity cannot insert negative value!")
 	private int quantity;
+	
 	@Column(name="is_active")
 	private boolean active;
 	@Column(name="category_id")
@@ -30,7 +42,15 @@ public class ProductBO {
 	private int supplierId;
 	private int purchases;
 	private int views;
+	@Transient
+	private MultipartFile file;
 	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	public ProductBO() {
 		this.code="PRD"+UUID.randomUUID().toString().substring(26).toUpperCase();
 	}

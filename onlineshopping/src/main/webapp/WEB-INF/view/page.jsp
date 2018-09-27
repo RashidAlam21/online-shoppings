@@ -29,11 +29,15 @@
 <!-- Font Awosome -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- <link -->
+	<link href="${css}/jquery.dataTables.css" rel="stylesheet">
+
 <!-- Bootstrap DataTables -->
-<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
-<link
-	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
-	rel="stylesheet">
+<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
+
+
+<%-- <link href="${css}/myapp.css" rel="stylesheet"> --%>
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
 <script type="text/javascript">
@@ -75,6 +79,10 @@
 			<c:if test="${userClickedShowProduct==true }">
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
+			<!-- loading only when user clicks Manage Products  -->
+			<c:if test="${userClickManageProduct==true }">
+				<%@include file="manageProduct.jsp"%>
+			</c:if>
 		</div>
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
@@ -86,12 +94,17 @@
 		<!-- Bootstrap core javascript -->
 		<script src="${js}/bootstrap.bundle.min.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
+		
 		<!-- Data table pluggins -->
 		<script src="${js}/jquery.dataTables.js"></script>
-
-		<!-- Data table BootStrap script -->
-		<%-- 	    <script src="${js}/dataTables.bootstrap.js"></script> --%>
-
+        <!-- Data table BootStrap script -->
+<%-- 			    <script src="${js}/dataTables.bootstrap4.js"></script> --%>
+        <!-- Bootbox -->
+        <script src="${js}/bootbox.min.js"></script>
+		
+		<!-- JQuery-Validator -->
+        <script src="${js}/jquery.validate.js"></script>
+		
 		<!-- Self coded javascript -->
 		<script src="${js}/myapp.js"></script>
 

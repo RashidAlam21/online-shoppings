@@ -15,7 +15,9 @@
   <property name="prefix" value="/WEB-INF/view/"/>
   <property name="suffix" value=".jsp"/>
  </bean>
- 
+  <!-- id should be match multipartResolver  -->
+  <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+  <!-- Loading the static resources -->
   <mvc:annotation-driven/>
   <mvc:resources location="/assert/" mapping="/resources/**"/>
 <!--   <mvc:resources location="/images/" mapping="/resources/**"/> -->

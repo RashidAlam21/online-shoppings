@@ -56,16 +56,16 @@ CREATE TABLE product(
 
 INSERT INTO product
 (code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
-values('PRDABC123DEFX','iPhone 5s','apple','This is one of the best phone available in the market right now !',18000,1,true,3,2);
+values('PRDABC123DEFX','iPhone 5s','apple','This is one of the best phone available in the market right now !',18000,1,true,4,2);
 
 
 INSERT INTO product
 (code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
-values('PRDABC123DEFZ','Samsung s7','samsung','A smart phone by samsung ! ',32000,2,true,3,3);
+values('PRDABC123DEFZ','Samsung s7','samsung','A smart phone by samsung ! ',32000,2,true,4,3);
 
 INSERT INTO product
 (code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
-values('PRDABCXYZDEFX','Google Pioxel','google','This is one of the best android smart phone available in the market right now !',57000,5,true,3,2);
+values('PRDABCXYZDEFX','Google Pioxel','google','This is one of the best android smart phone available in the market right now !',57000,5,true,4,2);
 
 INSERT INTO product
 (code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
@@ -73,4 +73,12 @@ values('PRDABC123DGTX','Macro Pro','apple','This is one of the best laptop avail
 
 INSERT INTO product
 (code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
-values('PRDABC123PQRX','Dell Latitude E6510','dell','This is one of the best laptop series in the market right now !',48000,5,true,1,3);
+values('PRDABC123PQRX','Dell Latitude E6510','dell','This is one of the best laptop series in the market right now !',48000,5,false,1,3);
+
+INSERT INTO product
+(code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
+values('PRDABCCYZDMNO','Redmi note5','RedMI','This is one of the best phones series in the market right now !',38000,2,true,4,1);
+
+INSERT INTO product
+(code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
+values('PRDABC1234PQRX','Dell VostroE6510','dell','This is one of the best laptop series in the market right now !',44000,3,true,1,3);

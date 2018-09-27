@@ -18,14 +18,14 @@ public class PageController {
 	private CategoryDAO categoryDAO;
 	@RequestMapping(value= {"/","/home","/index"},method=RequestMethod.GET)
 	public ModelAndView index() {
-		
+
 		System.out.println("ModelAndView");
-		ModelAndView mav=new ModelAndView("page");
-		mav.addObject("title","Home");
+		ModelAndView mav = new ModelAndView("page");
+		mav.addObject("title", "Home");
 		logger.info("Inside PageController index() method--INFO MNO");
 		logger.debug("Inside PageController index() method--DEBUG1 XYZ ");
 		mav.addObject("categories", categoryDAO.list());
-		//System.out.println(categoryDAO.list());
+		// System.out.println(categoryDAO.list());
 		mav.addObject("userClickedHome", true);
 		return mav;
 	}

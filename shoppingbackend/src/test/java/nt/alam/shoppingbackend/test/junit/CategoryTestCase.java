@@ -59,13 +59,14 @@ public class CategoryTestCase {
 	}
 
 	@Test
-	@Ignore
+	
 	public void testListCategory() {
 		categoryBO = categoryDAO.get(3);
-		assertEquals("Successfully fetched the list of a category from the table", 3, categoryDAO.list().size());
+		assertEquals("Successfully fetched the list of a category from the table", 6, categoryDAO.list().size());
 	}
 
 	@Test
+	@Ignore
 	public void testCrudCategory() {
 		//Add the Category in the table.
 //		categoryBO = new CategoryBO();
